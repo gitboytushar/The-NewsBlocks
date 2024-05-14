@@ -1,5 +1,5 @@
 // source: 'https://newsapi.org/'
-const API_KEY = "ec42a39cec92484983ddd753b45d10f0";
+const API_KEY = "a2a7ab081394481f9f8332f8e6ef851b";
 const url = "https://newsapi.org/v2/everything?q=";
 
 // initial visit on website shows India news
@@ -73,6 +73,9 @@ function onNavItemClick(id) {
    curSelectedNav?.classList.remove('active');
    curSelectedNav = navItem;
    curSelectedNav.classList.add('active');
+
+   // Clear the search field when user clicks on nav links
+   searchText.value = '';
 }
 
 // ---------------------- search bar functianality ----------------------

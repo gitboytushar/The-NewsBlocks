@@ -236,4 +236,36 @@ main {
    margin-block: 12px;
 }
 
-/* ------------------------------ Responsive codes ------------------------------ */
+/* ------------------------------ Responsive code ------------------------------ */
+/* tabets and mobiles layout */
+@media screen and (max-width: 1020px) {
+   .container.cards-container {
+      padding-inline: 5px;
+   }
+
+   .main-nav {
+      flex-direction: column;
+      gap: 100px;
+   }
+
+   .nav-links ul {
+      gap: 35px;
+   }
+
+   .search-bar {
+      top: 43%;
+   }
+
+   .news-input {
+      width: 240px;
+      border-radius: 0px;
+   }
+
+   main {
+      margin-top: 220px;
+   }
+
+   .card {
+      margin-top: 0px;
+   }
+}
