@@ -12,7 +12,11 @@ function reload() {
 
 //  nesting callbacks or using Promise chaining
 async function fetchNews(query) {
-   const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
+   const res = await fetch(`${url}${query}&apiKey=${API_KEY}`, {
+      header: {
+         "User-Agent": "curl / 7.54.1"
+      }
+   });
    const data = await res.json();
    bindData(data.articles);
 }
