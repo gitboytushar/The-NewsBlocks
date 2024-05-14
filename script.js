@@ -1,22 +1,17 @@
-// source: 'https://newsapi.org/'
-const API_KEY = "a2a7ab081394481f9f8332f8e6ef851b";
-const url = "https://newsapi.org/v2/everything?q=";
+// source: 'https://gnews.io/dashboard'
+const API_KEY = "808bfdab4ac1ddef9a80fce663055a30";
 
 // initial visit on website shows India news
-window.addEventListener("load", () => fetchNews("India"));
+window.addEventListener("load", () => fetchNews('https://gnews.io/api/v4/search?q=' + 'India' + '&lang=en&country=us&max=10&apikey=' + API_KEY));
 
 // reload the website when logo is clicked
 function reload() {
    window.location.reload();
 };
 
-//  nesting callbacks or using Promise chaining
-async function fetchNews(query) {
-   const res = await fetch(`${url}${query}&apiKey=${API_KEY}`, {
-      header: {
-         "User-Agent": "curl / 7.54.1"
-      }
-   });
+// to avoid nesting callbacks or using Promise chaining
+async function fetchNews(url) {
+   const res = await fetch(url);
    const data = await res.json();
    bindData(data.articles);
 }
@@ -30,7 +25,7 @@ function bindData(articles) {
 
    articles.forEach((article) => {
       // don't show a news without image
-      if (!article.urlToImage) return;
+      if (!article.image) return;
       const cardClone = newsCardTemplate.content.cloneNode(true);
       // fill the data in cards
       fillDataInCard(cardClone, article);
@@ -46,7 +41,7 @@ function fillDataInCard(cardClone, article) {
    const newsDesc = cardClone.querySelector('#news-desc');
 
    // set data to html id's
-   newsImg.src = article.urlToImage;
+   newsImg.src = article.image;
    newsTitle.innerHTML = article.title;
 
    // Truncate description if it's too long
@@ -71,7 +66,7 @@ function fillDataInCard(cardClone, article) {
 let curSelectedNav = null;
 // show news related to nav-clicked
 function onNavItemClick(id) {
-   fetchNews(id);
+   fetchNews('https://gnews.io/api/v4/search?q=' + id + '&lang=en&country=us&max=10&apikey=' + API_KEY);
    const navItem = document.getElementById(id);
    // remove active class from previous selection
    curSelectedNav?.classList.remove('active');
@@ -91,7 +86,7 @@ function performSearch() {
    // do nothing if user just clicked on the btn w/o giving input
    if (!query) return;
    // otherwise fetch and show the searched news
-   fetchNews(query);
+   fetchNews('https://gnews.io/api/v4/search?q=' + query + '&lang=en&country=us&max=10&apikey=' + API_KEY);
 
    // bug fix: remove active-nav when search happened
    curSelectedNav?.classList.remove('active');
