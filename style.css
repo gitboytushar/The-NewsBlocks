@@ -243,6 +243,10 @@ main {
       padding-inline: 5px;
    }
 
+   .app-logo img {
+      transform: translateX(-4px);
+   }
+
    .main-nav {
       flex-direction: column;
       gap: 100px;
