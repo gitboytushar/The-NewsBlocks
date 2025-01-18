@@ -228,6 +228,18 @@ main {
    margin-block: 12px;
 }
 
+#news-preloader {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 100;
+}
+
 /* ------------------------------ Responsive code ------------------------------ */
 /* tabets and mobiles layout */
 @media screen and (max-width: 1020px) {
@@ -267,6 +279,10 @@ main {
    .card-header img {
       height: 260px;
       object-fit: cover;
+   }
+
+   #news-preloader {
+      top: 57%;
    }
 }
 

@@ -18,11 +18,35 @@ function reload () {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
-// to avoid nesting callbacks or using Promise chaining
+// note: use async to avoid nesting callbacks or using Promise chaining
+
+// ----------- Fetch the new from API response -------------
 async function fetchNews (url) {
-  const res = await fetch(url)
-  const data = await res.json()
-  bindData(data.articles)
+  const loader = document.getElementById('news-preloader')
+  loader.style.display = 'block' // show loader
+
+  // Record the start time to enforce the minimum loader duration
+  const startTime = Date.now()
+
+  try {
+    // Fetch news data
+    const res = await fetch(url)
+    const data = await res.json()
+
+    // Calculate the elapsed time and enforce the minimum duration
+    const elapsedTime = Date.now() - startTime
+    const minimumDuration = 2500
+    const delay = Math.max(minimumDuration - elapsedTime, 0)
+
+    setTimeout(() => {
+      // Hide the loader and bind data to the page
+      loader.style.display = 'none'
+      bindData(data.articles)
+    }, delay)
+  } catch (error) {
+    console.error('Error fetching news:', error)
+    loader.style.display = 'none' // Hide loader on error
+  }
 }
 
 function bindData (articles) {
