@@ -12,8 +12,12 @@ The-NewsBlocks is a **modern** and **responsive** news aggregation platform that
 
 ## Tech stack
 
-1. Javascript
-2. CSS
-3. HTML
-4. gNews API
-5. 
+1. Javascript (user interactions and dom handling)
+2. CSS (design and effects)
+3. HTML (page structure)
+4. gNews API (data source)
+5. LottieFiles Animation (news preloader)
+
+## Live Preview 🚀
+
+[Click here](https://gitboytushar.github.io/The-NewsBlocks/)
