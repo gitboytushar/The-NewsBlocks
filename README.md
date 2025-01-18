@@ -1,12 +1,19 @@
 # The-NewsBlocks
 
-The-NewsBlocks is a **modern** and **responsive** website that displays the latest news with search-bar functionality.
+The-NewsBlocks is a **modern** and **responsive** news aggregation platform that delivers the latest news using the gNews API. It features a search bar and predefined navigation tabs to enhance user experience and accessibility.
 
 ## Features
 
-1. Built using JavaScript to show the latest news.
-2. Utilizes the gNews API for fetching real-time news data.
-3. Ensures a seamless experience across all devices.
+1. Ad-free browsing of the latest news.
+2. Real-time news updates via API.
+3. Seamless experience across all devices.
+4. Quick reading with concise content and related images.
+5. Clickable news cards for detailed reading at the source.
 
-### Reference
-Youtube tutorial by Anuj Bhaiya
+## Tech stack
+
+1. Javascript
+2. CSS
+3. HTML
+4. gNews API
+5. 

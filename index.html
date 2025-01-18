@@ -1,62 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-   <title>TheNewsBlocks</title>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+      <title>TheNewsBlocks</title>
 
-   <link rel="stylesheet" href="style.css">
-</head>
+      <link rel="stylesheet" href="style.css">
+   </head>
 
-<body>
+   <body>
 
-   <nav>
-      <div class="main-nav container flex">
-         <a href="#" onclick="reload()" class="app-logo">
-            <img src="./assets/TheNewsBlocks LOGO.svg" alt="app logo">
-         </a>
+      <nav>
+         <div class="main-nav container flex">
+            <a href="#" onclick="reload()" class="app-logo">
+               <img src="./assets/TheNewsBlocks LOGO.svg" alt="app logo">
+            </a>
 
-         <div class="search-bar flex">
-            <input id="search-text" type="text" class="news-input" placeholder="e.g. Elections in India ">
-            <button class="search-btn flex" id="search-btn">
-               <img src="./assets/go-icon.svg" alt="proceed search icon">
-            </button>
+            <div class="search-bar flex">
+               <input id="search-text" type="text" class="news-input" placeholder="e.g. Elections in India ">
+               <button class="search-btn flex" id="search-btn">
+                  <img src="./assets/go-icon.svg" alt="proceed search icon">
+               </button>
+            </div>
+
+            <div class="nav-links">
+               <ul class="flex">
+                  <!-- creating id and json-object with same name for easy function declaration in js -->
+                  <li class="hover-link nav-item" id="weather" onclick="onNavItemClick('weather')">Weather</li>
+                  <li class="hover-link nav-item" id="technology" onclick="onNavItemClick('technology')">Technology</li>
+                  <li class="hover-link nav-item" id="science" onclick="onNavItemClick('science')">Science</li>
+               </ul>
+            </div>
          </div>
+      </nav>
 
-         <div class="nav-links">
-            <ul class="flex">
-               <!-- creating id and json-object with same name for easy function declaration in js -->
-               <li class="hover-link nav-item" id="weather" onclick="onNavItemClick('weather')">Weather</li>
-               <li class="hover-link nav-item" id="technology" onclick="onNavItemClick('technology')">Technology</li>
-               <li class="hover-link nav-item" id="science" onclick="onNavItemClick('science')">Science</li>
-            </ul>
+      <main>
+         <div class="cards-container container flex" id="cards-container">
          </div>
-      </div>
-   </nav>
+      </main>
 
-   <main>
-      <div class="cards-container container flex" id="cards-container">
-      </div>
-   </main>
-
-   <!-- structure of news-card -->
-   <template id="template-news-card">
-      <div class="card">
-         <div class="card-header">
-            <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+      <!-- structure of news-card -->
+      <template id="template-news-card">
+         <div class="card">
+            <div class="card-header">
+               <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+            </div>
+            <div class="card-content">
+               <h1 id="news-title">Dummy Title</h1>
+               <h2 class="news-source" id="news-source">News Source &#183; date and time</h2>
+               <p class="news-desc" id="news-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet velit
+                  blanditiis iste temporibus, voluptatem veritatis praesentium fugit fugiat numquam non.</p>
+            </div>
          </div>
-         <div class="card-content">
-            <h1 id="news-title">Dummy Title</h1>
-            <h2 class="news-source" id="news-source">News Source &#183; date and time</h2>
-            <p class="news-desc" id="news-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet velit
-               blanditiis iste temporibus, voluptatem veritatis praesentium fugit fugiat numquam non.</p>
-         </div>
-      </div>
-   </template>
+      </template>
 
-   <!-- Api integration -->
-   <script src="script.js"></script>
-</body>
+      <!-- Api integration -->
+      <script src="script.js"></script>
+   </body>
 
 </html>

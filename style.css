@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=DM+Serif+Display&family=Inria+Serif:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+   scrollbar-width: none;
 }
 
 /* resets */
@@ -16,11 +17,14 @@
 
    --accent-color: #5C5470;
    --accent-color-dark: #352F44;
+
+   --hover-link-active-bg: #5C5470;
+   --hover-link-hover-bg: #5c54701d;
 }
 
 body {
-   font-family: "Inria Serif", serif;
-   font-weight: 400;
+   font-family: "Inter", serif;
+   font-weight: 300;
 
    color: var(--primary-text-color);
 
@@ -29,21 +33,23 @@ body {
 
 /* utility classes */
 h1 {
-   font-family: "DM Serif Display", serif;
-   font-weight: 400;
+   font-family: "Inter", serif;
+   font-weight: 600;
 
    font-size: 25px;
+   letter-spacing: .3px;
 }
 
 h2 {
-   font-family: "Inria Serif", serif;
+   font-family: "Inter", serif;
    font-weight: 400;
 
    font-size: 14px;
+
 }
 
 p {
-   font-family: "Inria Serif", serif;
+   font-family: "Inter", serif;
    font-weight: 400;
 
    font-size: 18px;
@@ -66,6 +72,8 @@ a {
    max-width: calc(100vw - 5%);
    margin-inline: auto;
    overflow: hidden;
+   padding-top: 2rem;
+   padding-bottom: 5rem;
 }
 
 /* --------------- nav bar --------------- */
@@ -81,8 +89,9 @@ nav {
    -webkit-backdrop-filter: blur(10px);
    border-bottom: 1px solid var(--primary-text-color);
 
-   font-family: "Arimo", sans-serif;
+   font-family: "Inter", serif;
    font-weight: 500;
+   font-size: 15px;
 }
 
 .main-nav {
@@ -95,42 +104,25 @@ nav {
 }
 
 .nav-links ul {
-   gap: 25px;
-}
-
-@keyframes hoverLinks {
-   0% {
-      transform: translateY(0px) rotate(0deg);
-   }
-
-   50% {
-      transform: translateY(3px) rotate(-4deg);
-   }
-
-   75% {
-      transform: translateY(-3px) rotate(4deg);
-   }
-
-   100% {
-      transform: translateY(0px) rotate(0deg);
-   }
+   gap: 2px;
 }
 
 .hover-link {
    cursor: pointer;
+   padding: 8px 12px;
+   transition: all 0.16s ease-in-out;
+   background-color: transparent;
 }
 
 @media (hover: hover) and (pointer: fine) {
    .hover-link:hover {
-      padding-bottom: 1px;
-      border-bottom: 1px solid var(--primary-text-color);
-      animation: hoverLinks 0.5s linear forwards;
+      background-color: var(--hover-link-hover-bg);
    }
 }
 
 .nav-item.active {
-   padding-bottom: 1px;
-   border-bottom: 1px solid var(--primary-text-color);
+   background-color: var(--hover-link-active-bg);
+   color: var(--page-color);
 }
 
 .search-bar {
@@ -142,7 +134,7 @@ nav {
 }
 
 .news-input {
-   width: 200px;
+   width: 250px;
    height: 80%;
 
    padding-inline: 16px;
@@ -199,10 +191,10 @@ main {
 
 .card {
    margin-top: 50px;
-   width: 360px;
+   width: 420px;
    min-height: 500px;
 
-   border: 1px solid var(--accent-color);
+   border: 1.5px solid var(--accent-color);
 
    cursor: pointer;
    overflow: hidden;
@@ -220,8 +212,8 @@ main {
 
 .card-header img {
    width: 100%;
-   height: 200px;
-   object-fit: cover;
+   height: 250px;
+   object-fit: cover contain;
 }
 
 .card-content {
@@ -240,7 +232,7 @@ main {
 /* tabets and mobiles layout */
 @media screen and (max-width: 1020px) {
    .container.cards-container {
-      padding-inline: 5px;
+      padding-inline: 2px;
    }
 
    .app-logo img {
@@ -249,15 +241,15 @@ main {
 
    .main-nav {
       flex-direction: column;
-      gap: 100px;
+      gap: 80px;
    }
 
    .nav-links ul {
-      gap: 35px;
+      gap: 14px;
    }
 
    .search-bar {
-      top: 43%;
+      top: 45%;
    }
 
    .news-input {
@@ -270,5 +262,16 @@ main {
 
    .card {
       margin-top: 0px;
+   }
+
+   .card-header img {
+      height: 260px;
+      object-fit: cover;
+   }
+}
+
+@media screen and (max-width: 430px) {
+   .card-header img {
+      height: 200px;
    }
 }
