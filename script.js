@@ -14,8 +14,6 @@ window.addEventListener('load', () =>
 // reload the website when logo is clicked
 function reload () {
   window.location.reload()
-  // Scroll to top of the page
-  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 // note: use async to avoid nesting callbacks or using Promise chaining
@@ -65,6 +63,9 @@ function bindData (articles) {
     // add card on website
     cardsContainer.appendChild(cardClone)
   })
+
+  // Scroll to top when new data loaded and binded
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 function fillDataInCard (cardClone, article) {
@@ -116,9 +117,6 @@ function onNavItemClick (id) {
 
   // Clear the search field when user clicks on nav links
   searchText.value = ''
-
-  // Scroll to top of the page
-  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 // ---------------------- search bar functianality ----------------------
@@ -140,9 +138,6 @@ function performSearch () {
   // bug fix: remove active-nav when search happened
   curSelectedNav?.classList.remove('active')
   curSelectedNav = null
-
-  // Scroll to top of the page
-  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 // when user clicks the Search-Button
