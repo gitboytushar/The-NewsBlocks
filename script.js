@@ -21,7 +21,7 @@ function reload () {
 // ----------- Fetch the new from API response -------------
 async function fetchNews (url) {
   const loader = document.getElementById('news-preloader')
-  loader.style.display = 'block' // show loader
+  loader.style.display = 'flex'
 
   // Record the start time to enforce the minimum loader duration
   const startTime = Date.now()

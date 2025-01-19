@@ -72,8 +72,6 @@ a {
    max-width: calc(100vw - 5%);
    margin-inline: auto;
    overflow: hidden;
-   padding-top: 2rem;
-   padding-bottom: 5rem;
 }
 
 /* --------------- nav bar --------------- */
@@ -187,6 +185,8 @@ main {
    flex-wrap: wrap;
    align-items: start;
    gap: 50px;
+   padding-top: 2rem;
+   padding-bottom: 5rem;
 }
 
 .card {
@@ -217,7 +217,7 @@ main {
 }
 
 .card-content {
-   padding: 16px;
+   padding: 10px;
 }
 
 .card-content p {
@@ -228,23 +228,33 @@ main {
    margin-block: 12px;
 }
 
+/* ---------- New animated preloader - Fullscreen overlay with centered loader ----------- */
 #news-preloader {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background-color: var(--page-color);
+   z-index: 98;
+}
+
+.loader-overlay {
    display: flex;
    align-items: center;
    justify-content: center;
-
-   position: fixed;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   z-index: 100;
+   width: 100%;
+   height: 100%;
 }
 
-/* ------------------------------ Responsive code ------------------------------ */
+/* ========================================== Responsive code ========================================== */
 /* tabets and mobiles layout */
 @media screen and (max-width: 1020px) {
    .container.cards-container {
       padding-inline: 2px;
+      padding-top: 0rem;
+      padding-bottom: 2rem;
    }
 
    .app-logo img {
@@ -269,7 +279,7 @@ main {
    }
 
    main {
-      margin-top: 220px;
+      margin-top: 197px;
    }
 
    .card {
@@ -282,12 +292,18 @@ main {
    }
 
    #news-preloader {
-      top: 57%;
+      top: 40px;
+      transform: none;
    }
 }
 
 @media screen and (max-width: 430px) {
    .card-header img {
-      height: 200px;
+      height: 220px;
+   }
+
+   #news-preloader {
+      height: 100vh;
+      align-items: center;
    }
 }
